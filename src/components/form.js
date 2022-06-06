@@ -115,13 +115,13 @@ function FormConverter() {
         <Row className='mt-4'>
           <Col>
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>{`${optionA.toUpperCase()} NUMBER`}</Form.Label>
+              <Form.Label>{`${optionA.toUpperCase()} #`}</Form.Label>
               <Form.Control className='input' type="text" placeholder='Write value' onChange={e => setPayload(e.target.value)} />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label >{`${optionB.toUpperCase()} NUMBER`}</Form.Label>
+              <Form.Label >{`${optionB.toUpperCase()} #`}</Form.Label>
               <Form.Control type="text" value={result} disabled />
             </Form.Group>
           </Col>
