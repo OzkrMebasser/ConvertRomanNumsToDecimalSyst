@@ -1,6 +1,6 @@
-import { useState, useRef} from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Row, Col, Form, Button, Overlay } from 'react-bootstrap';
+import { Row, Col, Form, Button } from 'react-bootstrap';
 import { decimalToRoman, romanToDecimal } from '../features/convertSlice';
 
 function FormConverter() {
@@ -9,10 +9,8 @@ function FormConverter() {
   const [payload, setPayload] = useState('');
   const result = useSelector(state => state.convert.value);
   const dispatch = useDispatch();
-  
-  const [show, setShow] = useState(false);
-  const target = useRef(null);
 
+  // const numbersRegex = /^[0-9]*$/;
   const numbersRegex = /[0-9]/;
 
   class HashTable {
@@ -79,7 +77,7 @@ function FormConverter() {
     e.preventDefault();
 
     if (optionB === 'roman') {
-      payload.length > 0 && numbersRegex.test(payload) ? dispatch(decimalToRoman(payload)) : alert('Upss! you must use integers');
+      payload.length > 0 && numbersRegex.test(payload) ? dispatch(decimalToRoman(payload)) : alert('Use only integers');
     } else {
       const test = myHashTable.testRoman(payload);
       payload.length > 0 && test ? dispatch(romanToDecimal(payload)) : alert('Upss! This character is not a valid roman numeral');
@@ -87,14 +85,13 @@ function FormConverter() {
   };
 
   return (
-    <div className="p-3 mb-5 rounded" >
-      <Form onSubmit={e => convert(e)} className='fs-6 badge bg-light.bg-gradient text-wrap p-3W fw-bolder text-dark'>
-    
-        <h1 className="title mb-4 text-uppercase">Roman Numerals <br/>to <br/>Decimal system </h1>
+    <div >
+      <Form onSubmit={e => convert(e)} className='text-bg-light p-3W'>
+        <h3 className="mb-5">Roman Numerals <br/>to <br/>Decimal system</h3>
         <Row>
           <Col>
             <Form.Group  controlId="formBasicEmail">
-              <Form.Label ClassName="fs-3 fw-bolder text-dark">FROM</Form.Label>
+              <Form.Label>FROM</Form.Label>
               <Form.Select  role="button" value={optionA} onChange={changeOption} id='a'>
                 <option  value='roman'>Roman</option>
                 <option value='decimal'>Decimal</option>
@@ -127,27 +124,9 @@ function FormConverter() {
           </Col>
         </Row>
 
-        <Button className=' btn-lg mt-4 fw-bolder' variant="warning" ref={target} onClick={() => setShow(!show)} type="submit">
-        Click to Convert
-      </Button>
-      <Overlay ClassName=' mt-4'target={target.current} show={show} placement="right">
-        {({ placement, arrowProps, show: _show, popper, ...props }) => (
-          <div
-            {...props}
-            style={{
-              position: 'absolute',
-              backgroundColor: 'white',  
-              padding: '4px 10px',
-              color: 'black',
-              borderRadius: '5px',
-              ...props.style,
-            }}
-          >
-            Very good! 👏👏
-          </div>
-        )}
-      </Overlay>
-
+        <Button className=' btn-lg mt-4' variant="dark" type="submit">
+          Convert
+        </Button>
       </Form>
     </div>
   );
