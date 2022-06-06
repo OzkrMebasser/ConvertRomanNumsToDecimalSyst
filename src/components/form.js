@@ -87,8 +87,8 @@ function FormConverter() {
   };
 
   return (
-    <div className="p-3 mb-5 rounded" >
-      <Form onSubmit={e => convert(e)} className='fs-6 badge bg-light.bg-gradient text-wrap p-3W fw-bolder text-dark'>
+    <div  >
+      <Form onSubmit={e => convert(e)} className='fs-6 badge bg-light.bg-gradient text-wrap p-3W fw-bolder text-dark shadow-lg p-5 bg-trasnparent rounded'>
     
         <h1 className="title mb-4 text-uppercase">Roman Numerals <br/>to <br/>Decimal system </h1>
         <Row>
