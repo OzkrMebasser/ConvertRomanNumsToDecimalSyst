@@ -2,6 +2,9 @@ import { useState, useRef} from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Row, Col, Form, Button, Overlay } from 'react-bootstrap';
 import { decimalToRoman, romanToDecimal } from '../features/convertSlice';
+import { GoOctoface } from "react-icons/go";
+
+
 
 function FormConverter() {
   const [optionA, setOptionA] = useState('roman');
@@ -89,7 +92,8 @@ function FormConverter() {
   };
 
   return (
-    <div  >
+    <>
+    <div>
       <Form onSubmit={e => convert(e)} className=' border border-warning fs-6 badge bg-light.bg-gradient text-wrap p-3W fw-bolder text-black shadow-lg p-5 bg-trasnparent rounded'>
     
         <h1 className="title mb-4 text-uppercase">Roman Numerals <br/>to <br/>Decimal system </h1>
@@ -152,7 +156,15 @@ function FormConverter() {
       </Overlay>
 
       </Form>
+
+      
+      
+      
     </div>
+    <span>
+    <a className="fs-1 text-black" href="https://github.com/OzkrMebasser/ConvertRomanNumsToDecimalSyst" target="__blank" ><GoOctoface/> </a>
+    </span>
+    </>
   );
 }
 
