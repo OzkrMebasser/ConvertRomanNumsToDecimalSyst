@@ -27,10 +27,21 @@ code {
 }
 
 h1 {
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: 2.2rem;
+  font-weight: 700;
   margin: 0;
   margin-bottom: 1rem;
   color: rgb(0, 0, 0);
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-shadow: -2px 0 rgb(241, 217, 0), 0 1px black, 1px 0 rgb(236, 43, 43), 0 -1px rgb(255, 255, 255);
 }
+
+
+
+
+
+
+
+
+
+
+

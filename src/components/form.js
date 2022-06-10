@@ -80,6 +80,8 @@ function FormConverter() {
 
     if (optionB === 'roman') {
       payload.length > 0 && numbersRegex.test(payload) ? dispatch(decimalToRoman(payload)) : alert('Upss! you must use integers');
+      
+      
     } else {
       const test = myHashTable.testRoman(payload);
       payload.length > 0 && test ? dispatch(romanToDecimal(payload)) : alert('Upss! This character is not a valid roman numeral');
@@ -88,13 +90,13 @@ function FormConverter() {
 
   return (
     <div  >
-      <Form onSubmit={e => convert(e)} className='fs-6 badge bg-light.bg-gradient text-wrap p-3W fw-bolder text-dark shadow-lg p-5 bg-trasnparent rounded'>
+      <Form onSubmit={e => convert(e)} className=' border border-warning fs-6 badge bg-light.bg-gradient text-wrap p-3W fw-bolder text-black shadow-lg p-5 bg-trasnparent rounded'>
     
         <h1 className="title mb-4 text-uppercase">Roman Numerals <br/>to <br/>Decimal system </h1>
         <Row>
           <Col>
             <Form.Group  controlId="formBasicEmail">
-              <Form.Label ClassName="fs-3 fw-bolder text-dark">FROM</Form.Label>
+              <Form.Label ClassName="fs-3 fw-bolder">FROM</Form.Label>
               <Form.Select  role="button" value={optionA} onChange={changeOption} id='a'>
                 <option  value='roman'>Roman</option>
                 <option value='decimal'>Decimal</option>
@@ -116,7 +118,7 @@ function FormConverter() {
           <Col>
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>{`${optionA.toUpperCase()} #`}</Form.Label>
-              <Form.Control className='input' type="text" placeholder='Write value' onChange={e => setPayload(e.target.value)} />
+              <Form.Control className='input' type="text" placeholder='Write to convert' onChange={e => setPayload(e.target.value)} />
             </Form.Group>
           </Col>
           <Col>
@@ -130,7 +132,8 @@ function FormConverter() {
         <Button className=' btn-lg mt-4 fw-bolder' variant="warning" ref={target} onClick={() => setShow(!show)} type="submit">
         Click to Convert
       </Button>
-      <Overlay ClassName=' mt-4'target={target.current} show={show} placement="right">
+
+      <Overlay ClassName=' mt-4' target={target.current} show={show} placement="bottom">
         {({ placement, arrowProps, show: _show, popper, ...props }) => (
           <div
             {...props}
@@ -143,7 +146,7 @@ function FormConverter() {
               ...props.style,
             }}
           >
-            Very good! 👏👏
+          Very good! 👏👏
           </div>
         )}
       </Overlay>
